@@ -1,0 +1,28 @@
+---
+- name: Ensure nodenv is installed
+  homebrew:
+    name: nodenv
+    state: present
+
+- name: Ensure nodenv-default-packages is installed
+  homebrew:
+    name: nodenv/nodenv/nodenv-default-packages
+    state: present
+
+- name: 'Ensure {{ nodenv_root }} directory is created'
+  file:
+    path: '{{ nodenv_root }}'
+    state: directory
+    mode: 0755
+
+- name: Ensure nodenv is added to profile system-wide
+  blockinfile:
+    path: /etc/profile
+    block: "{{ lookup('template', 'nodenv.sh.j2') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK -- NODENV"
+  become: yes
+
+- name: Ensure default-packages file is copied
+  copy:
+    src: default-packages
+    dest: '{{ nodenv_root }}/default-packages'

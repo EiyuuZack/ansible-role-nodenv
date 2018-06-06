@@ -1,0 +1,12 @@
+---
+- name: Ensure selected node versions are installed
+  shell: $SHELL -lc 'nodenv install {{ item.version|quote }}' # when using shell always use quote filter to avoid injection
+  args:
+    creates: '{{ nodenv_root }}/versions/{{ item.version }}/bin/node'
+  with_items: '{{ nodenv_nodes }}'
+
+- name: 'Ensure node {{ nodenv_default_node }} is default'
+  shell: $SHELL -lc 'nodenv global {{ nodenv_default_node|quote }}'
+
+- name: Ensure shims are updated
+  shell: $SHELL -lc 'nodenv rehash'
