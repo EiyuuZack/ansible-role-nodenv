@@ -1,5 +1,5 @@
 ---
 nodenv_root: ~/.nodenv
-nodenv_default_node: 8.11.2
+nodenv_default_node: 8.11.3
 nodenv_nodes:
-  - version: 8.11.2
+  - version: 8.11.3
