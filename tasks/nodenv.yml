@@ -9,6 +9,11 @@
     name: nodenv/nodenv/nodenv-default-packages
     state: present
 
+- name: Ensure nodenv-aliases is installed
+  homebrew:
+    name: nodenv/nodenv/nodenv-aliases
+    state: present
+
 - name: 'Ensure {{ nodenv_root }} directory is created'
   file:
     path: '{{ nodenv_root }}'
