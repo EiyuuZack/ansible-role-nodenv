@@ -22,7 +22,7 @@
 
 - name: Ensure nodenv is added to profile system-wide
   blockinfile:
-    path: /etc/profile
+    path: /etc/zprofile
     block: "{{ lookup('template', 'nodenv.sh.j2') }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK -- NODENV"
   become: yes
