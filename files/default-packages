@@ -1,7 +1,5 @@
 @commitlint/cli
 @commitlint/config-conventional
-@commitlint/prompt-cli
 cordova
 imagemagick
-npm
 standard-version
