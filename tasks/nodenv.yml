@@ -25,6 +25,7 @@
     path: "{{ ansible_env.HOME }}/.zprofile"
     block: "{{ lookup('template', 'nodenv.sh.j2') }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK -- NODENV"
+    create: true
 
 - name: Ensure default-packages file is copied
   copy:
