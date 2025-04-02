@@ -1,5 +1,5 @@
 ---
 nodenv_root: ~/.nodenv
-nodenv_default_node: 18.17.0
+nodenv_default_node: 22.14.0
 nodenv_nodes:
-  - version: 18.17.0
+  - version: 22.14.0
